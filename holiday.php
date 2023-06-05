@@ -12,3 +12,12 @@ function getHoliday($year){
 
 $holiday = getHoliday(2024);
 print_r($holiday);
+
+$y = 2240; $m = 6;
+$date = '2025-1-1';
+function getWeekday($date){
+    return date('w', strtotime($date));
+}
+
+echo getWeekday($date);
+?>
