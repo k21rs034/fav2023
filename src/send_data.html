@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        td {
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>年月日を入力してください</h1>
+    <form action="getholiday.php" method="post">
+        <table>
+            <tr>
+                <td>年を入力してください</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="year" />
+                </td>
+            </tr>
+            <tr>
+                <td>月を入力してください</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="month" />
+                </td>
+            </tr>
+            <tr>
+                <td>日を入力してください</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="day" />
+                </td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" name="submit" value="送信" />
+        <input type="reset" value="取消" />
+    </form>
+</body>
+
+</html>
