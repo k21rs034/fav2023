@@ -116,6 +116,7 @@ function getHolidayName($year, $month, $day)
   return $holidayName;
 }
 
+
 if (isset($_POST['year']) && isset($_POST['month']) && isset($_POST['day'])) {
   $y = $_POST['year'];
   $m = $_POST['month'];
@@ -123,8 +124,21 @@ if (isset($_POST['year']) && isset($_POST['month']) && isset($_POST['day'])) {
 
   $result = calculateCalendar($y, $m, $d);
 
-  echo "<br>{$y}年{$m}月は{$result['totalDays']}日あります。";
-  echo "{$y}-{$m}-{$d}は{$result['weekday']}です。";
+  echo "<h2><br>{$y}年{$m}月は{$result['totalDays']}日あります。";
+  echo "{$y}-{$m}-{$d}は{$result['weekday']}です。</h2>";
+
+  $lastDayOfMonth = date('t', strtotime("$y-$m-01"));
+
+  echo "<h2>{$y}年{$m}月の祝日</h2>";
+
+  for ($day = 1; $day <= $lastDayOfMonth; $day++) {
+    $holidayName = getHolidayName($y, $m, $day);
+    $weekday = getWeekday("$y-$m-$day");
+
+    if (!empty($holidayName)) {
+      echo "{$m}月{$day}日({$weekday}): {$holidayName}<br>";
+    } 
+  }
 
   // カレンダーの表示
   echo "<h2>{$y}年{$m}月</h2>";
@@ -134,4 +148,5 @@ if (isset($_POST['year']) && isset($_POST['month']) && isset($_POST['day'])) {
     echo $dayInfo['day'].'('.$dayInfo['weekday'].'):'. $dayInfo['holiday'].'<br>';
   }
 }
+
 ?>
