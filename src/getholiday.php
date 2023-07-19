@@ -33,7 +33,7 @@ function calculateCalendar($y, $m, $d)
 function getWeekday($date)
 {
   $weekday = date('w', strtotime($date));
-  $weekdays = ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'];
+  $weekdays = ['日', '月', '火', '水', '木', '金', '土'];
   return $weekdays[$weekday];
 }
 
@@ -125,7 +125,7 @@ if (isset($_POST['year']) && isset($_POST['month']) && isset($_POST['day'])) {
   $result = calculateCalendar($y, $m, $d);
 
   echo "<h2><br>{$y}年{$m}月は{$result['totalDays']}日あります。";
-  echo "{$y}-{$m}-{$d}は{$result['weekday']}です。</h2>";
+  echo "{$y}-{$m}-{$d}は{$result['weekday']}曜日です。</h2>";
 
   $lastDayOfMonth = date('t', strtotime("$y-$m-01"));
 
